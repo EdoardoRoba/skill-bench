@@ -1,0 +1,16 @@
+{
+  "name": "skillgen-scripts",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Deterministic analysis scripts backing the skillgen plugin's /skillgen:generate and /skillgen:eval commands.",
+  "scripts": {
+    "generate": "tsx generate.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test lib/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.4"
+  }
+}

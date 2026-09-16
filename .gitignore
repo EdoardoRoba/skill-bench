@@ -28,5 +28,6 @@ coverage/
 .idea/
 .DS_Store
 
-# skillgen eval output
+# skillgen generated output (regenerate with /skillgen:generate and /skillgen:eval)
+skillgen-candidates/
 reports/
