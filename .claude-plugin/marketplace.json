@@ -1,0 +1,15 @@
+{
+  "name": "skill-bench",
+  "owner": {
+    "name": "Edoardo Roba"
+  },
+  "plugins": [
+    {
+      "name": "skillgen",
+      "source": ".",
+      "displayName": "Skill Generator + Eval Harness",
+      "description": "Generate Claude Code skill candidates from a repo's structure and history, then A/B test them against real task scenarios before shipping.",
+      "version": "0.1.0"
+    }
+  ]
+}
