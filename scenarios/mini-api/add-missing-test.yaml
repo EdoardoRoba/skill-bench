@@ -1,0 +1,15 @@
+name: "add-missing-test"
+description: "Backfill a test for an untested route, following the repo's mirrored tests/ layout."
+repo: "examples/mini-api"
+task: |
+  src/routes/health.js has no test. Add one, following this repo's
+  existing test conventions for route files, that checks GET /health
+  returns 200 and { "status": "ok" }.
+
+assertions:
+  tools_called: ["Write"]
+  tools_not_called: ["Bash(rm *)", "Bash(git push*)"]
+  files_changed:
+    - pattern: "tests/routes/*.js"
+  max_tool_calls: 15
+  tests_pass: true

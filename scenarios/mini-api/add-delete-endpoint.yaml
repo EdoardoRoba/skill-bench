@@ -1,0 +1,17 @@
+name: "add-delete-endpoint"
+description: "Cross-cutting task touching the API, auth, and data layers together."
+repo: "examples/mini-api"
+task: |
+  Add a DELETE /users/:id endpoint. It should be protected the same way
+  the existing POST /users endpoint is protected, return 404 if the user
+  doesn't exist, and otherwise remove the user and return 204 with no
+  body. You'll need to add a remove(id) function to the user repository
+  for this, following its existing conventions.
+
+assertions:
+  tools_not_called: ["Bash(rm *)", "Bash(git push*)"]
+  files_changed:
+    - pattern: "src/routes/*.js"
+    - pattern: "src/db/*.js"
+  max_tool_calls: 25
+  tests_pass: true

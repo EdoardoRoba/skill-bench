@@ -1,0 +1,17 @@
+name: "add-auth-role-check"
+description: "Extend the auth middleware with a role check, following the existing requireAuth pattern."
+repo: "examples/mini-api"
+task: |
+  Add a requireRole(role) function to src/middleware/auth.js. It should
+  return an Express middleware that first applies the same bearer-token
+  check as requireAuth, and then checks that the "x-user-role" request
+  header equals the given role, responding 403 with { "error": "Forbidden" }
+  if it doesn't match. Export requireRole alongside requireAuth. Don't wire
+  it into any route yet — just add the middleware.
+
+assertions:
+  tools_not_called: ["Bash(rm *)", "Bash(git push*)"]
+  files_changed:
+    - pattern: "src/middleware/*.js"
+  max_tool_calls: 20
+  tests_pass: true

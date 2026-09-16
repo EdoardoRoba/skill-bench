@@ -1,0 +1,15 @@
+name: "add-repository-method"
+description: "Add a new lookup function to the in-memory repository, following its existing conventions."
+repo: "examples/mini-api"
+task: |
+  Add a findByEmail(email) function to src/db/userRepository.js that
+  returns the matching user, or null if none is found. Export it the same
+  way the existing functions are exported. Don't wire it into a route —
+  just add the repository function.
+
+assertions:
+  tools_not_called: ["Bash(rm *)", "Bash(git push*)"]
+  files_changed:
+    - pattern: "src/db/*.js"
+  max_tool_calls: 15
+  tests_pass: true

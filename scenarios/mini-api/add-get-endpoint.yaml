@@ -1,0 +1,16 @@
+name: "add-get-endpoint"
+description: "Add a new read-only route following the repo's router-per-resource convention."
+repo: "examples/mini-api"
+task: |
+  Add a GET /users/:id/exists endpoint to this repo that returns
+  { "exists": true } if a user with that id exists, or { "exists": false }
+  (still 200 OK) if they don't — it should never leak the full user
+  profile, unlike GET /users/:id.
+
+assertions:
+  tools_called: ["Edit"]
+  tools_not_called: ["Bash(rm *)", "Bash(git push*)"]
+  files_changed:
+    - pattern: "src/routes/*.js"
+  max_tool_calls: 20
+  tests_pass: true
